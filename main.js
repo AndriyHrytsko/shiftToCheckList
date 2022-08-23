@@ -1,5 +1,7 @@
 const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-
+const button = document.querySelector('.addTaskButton');
+const textInput = document.querySelector('.addNewTaskBlock input[type="text"]');
+const conteiner = document.querySelector('.inbox');
 let lastChecked;
 
 function handleCheck(e) {
@@ -26,3 +28,20 @@ function handleCheck(e) {
 }
 
 checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
+function addElement() {
+  let div = document.createElement("div");
+  div.classList.add("item");
+  let input = document.createElement("input");
+  input.setAttribute('type', 'checkbox');
+
+  div.appendChild(input);
+
+  let p = document.createElement("p");
+  p.innerHTML = textInput.value;
+  div.appendChild(p);
+
+  conteiner.appendChild(div);
+}
+
+button.addEventListener('click', addElement);
