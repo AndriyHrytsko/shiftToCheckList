@@ -41,6 +41,13 @@ function addElement() {
   p.innerHTML = textInput.value;
   div.appendChild(p);
 
+  if (textInput.value.length <= 0) {
+    return
+  }
+
+  if (textInput.value.length > 0) {
+    textInput.value="";
+  }
   conteiner.appendChild(div);
 }
 
